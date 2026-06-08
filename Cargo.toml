@@ -1,10 +1,13 @@
 [package]
+rust-version = "1.70"
+readme = "README.md"
 name = "renormalization-agent"
 version = "0.1.0"
 edition = "2021"
 description = "Renormalization group for multi-scale agent behavior — coarse-graining with invariants"
 license = "MIT"
 repository = "https://github.com/SuperInstance/renormalization-agent"
+documentation = "https://docs.rs/renormalization-agent"
 keywords = ["renormalization", "multi-scale", "agent", "coarse-graining", "rg-flow"]
 
 [dependencies]
