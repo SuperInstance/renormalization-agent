@@ -1,0 +1,11 @@
+[package]
+name = "renormalization-agent"
+version = "0.1.0"
+edition = "2021"
+description = "Renormalization group for multi-scale agent behavior — coarse-graining with invariants"
+license = "MIT"
+repository = "https://github.com/SuperInstance/renormalization-agent"
+keywords = ["renormalization", "multi-scale", "agent", "coarse-graining", "rg-flow"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
