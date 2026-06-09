@@ -7,6 +7,14 @@
 //! ticks to hourly to daily behavior. Each coarse-graining step preserves relevant
 //! observables and flows irrelevant ones toward fixed points.
 //!
+//! ## The Physics
+//!
+//! In statistical mechanics, the RG explains why vastly different microscopic
+//! systems (water, magnets, fluids) exhibit the same critical behavior. They share
+//! **universality classes** — they flow to the same fixed point under coarse-graining.
+//! Applied to agents: two agents with very different tick-level behavior may be
+//! indistinguishable at daily scales.
+//!
 //! ## Core concepts
 //!
 //! - **[`scale::ScaleTransform`]** — Coarse-graining operators (block averaging,
@@ -19,16 +27,18 @@
 //!   tick data.
 //! - **[`invariants::ScaleInvariant`]** — Quantities conserved across scales.
 //!
-//! ## Example
+//! ## Quick Start
 //!
-//! ```rust
-//! use renormalization_agent::agent_scale::AgentScaleMap;
+//! ```
+//! use renormalization_agent::AgentScaleMap;
 //!
 //! let ticks: Vec<f64> = (0..1024).map(|i| (i as f64 * 0.1).sin()).collect();
 //! let mut map = AgentScaleMap::new(ticks);
 //! map.extract_mean("mean");
 //! map.coarse_grain(4).unwrap();
 //! map.extract_mean("mean");
+//!
+//! let obs = map.observables.iter().find(|o| o.name == "mean").unwrap();//! assert_eq!(obs.values.len(), 2); // one per scale
 //! ```
 
 pub mod agent_scale;
